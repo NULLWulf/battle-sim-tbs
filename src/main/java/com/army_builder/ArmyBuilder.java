@@ -14,11 +14,6 @@ import java.util.ArrayList;
 public class ArmyBuilder {
         public static void main(String[] args) throws IOException {
 
-            Infantry infantry = new Infantry("Burners","Clerics",278,50,50,50);
-
-            for(int i = 0; i < 100; i ++){
-                infantry.damageFrontRank();
-            }
         }
 
     }

@@ -1,6 +1,10 @@
 package com.army_builder.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.text.ParseException;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -10,7 +14,10 @@ public class Infantry extends Units {
 
     final static int directAttackRange = 1;
     final static int diagonalAttackRange = 1;
+    @JsonIgnore
+    public int currentModels;
 
+    @JsonIgnore
     Queue<Integer> rankFile = new LinkedList<Integer>();
 
 
@@ -38,21 +45,7 @@ public class Infantry extends Units {
         }
     }
 
-    public void damageFrontRank(){
-
-        int modelsInFile = rankFile.element();  // Gets models in current rank
-
-        int modelsToLose = ThreadLocalRandom.current().nextInt(5, 9 + 1);
-
-        modelsInFile = modelsInFile - modelsToLose;  // subtracts passed models to lose
-        rankFile.remove(); // removes current model file
-        rankFile.add(modelsInFile); // add back in damaged models d
-
-        iterateOverFIle();
-
-    }
-
-    public void iterateOverFIle(){
+    public void iterateOverFile(){
 
         // hasNext() returns true if the queue has more elements
         for (Integer integer : rankFile) {
@@ -64,4 +57,32 @@ public class Infantry extends Units {
 
     }
 
+    public double calculateAttack(){
+        int rank1Models = rankFile.element(); // Get number of models in first 1st rank at time
+        rankFile.remove(); // remove
+        rankFile.add(rank1Models); // and place at back
+        int rank2Models = rankFile.element(); // Get  next rank model count (this rank stays in place)
+        return (rank2Models + rank1Models) * this.getAttackPerModel(); // final calculated value based on
+    }
+
+    public void damageRank(int modelsToLose){
+        int rank1Models = rankFile.element(); // Get number of models in first 1st rank at time
+        rankFile.remove(); // remove
+        rankFile.add(rank1Models); // and place at back
+
+    }
+
+    public void reformRanks(){
+
+        int currentModels = 0;
+        for (Integer integer : rankFile) {
+            // next() returns the next element in the iteration
+            currentModels += rankFile.element();
+        }
+        double currentModelProportion = Double.parseDouble(String.valueOf(currentModels/this.getModels()));
+
+        if(currentModelProportion < .50){
+            this.rankFileGenerator();
+        }
+    }
 }
