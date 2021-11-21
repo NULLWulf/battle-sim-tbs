@@ -1,9 +1,6 @@
 package com.army_builder.systems;
 
-import com.army_builder.models.Cavalry;
-import com.army_builder.models.Infantry;
-import com.army_builder.models.Ranged;
-import com.army_builder.models.Units;
+import com.army_builder.models.*;
 
 public class battle {
 
@@ -44,12 +41,12 @@ public class battle {
     }
 
 
-    public void unitWeaknessModifier(Units attacker, Units defender){
-
-        if((attacker.getClass() == Cavalry.class) && (defender.getClass() == Infantry.class)){
-
-        } else if((attacker.getClass() == Cavalry.class) && (defender.getClass() == Infantry.class)){
-
-        }
+//    public void unitWeaknessModifier(Units attacker, Units defender){
+//
+//        if((attacker.getClass() == Cavalry.class) && (defender.getClass() == Infantry.class)){
+//
+//        } else if((attacker.getClass() == Cavalry.class) && (defender.getClass() == Infantry.class)){
+//
+//        }
 
 }

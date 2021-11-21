@@ -16,6 +16,11 @@ public class Units {
     double defensePerModel; // inherent defense value per model
     double attackPerModel; // inherent attack value per model
 
+    @JsonIgnore
+    private int posX;  // Map Grid Position System, in this instance columns
+    @JsonIgnore
+    private int posY;  // Map grid position system, in this instance rows
+
     // Needed for Jackson handler
     public Units(){};
 
@@ -91,5 +96,18 @@ public class Units {
     public double calculateDefense() {return this.defensePerModel * this.models;}
 
     public void removeModels(int remove) {this.models = this.models - remove;}
+
+    public void setPosX(int x) {
+        this.posX = x;
+    }  // Map Grid Position System, in this instance columns
+    public void setPosY(int y) {
+        this.posY = y;
+    }  // Map grid position system, in this instance rows
+    public int getPosX() {
+        return posX;
+    }  // Map Grid Position System, in this instance columns
+    public int getPosY() {
+        return posY;
+    }
 }
 
