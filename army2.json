@@ -1,0 +1,70 @@
+{
+  "faction" : "Fenris",
+  "factionLeader" : "Faction",
+  "cavalry" : [ {
+    "faction" : "Red Mens",
+    "name" : "Alurian Archerers",
+    "models" : 50,
+    "healthPerModel" : 50.0,
+    "defensePerModel" : 50.0,
+    "attackPerModel" : 50.0
+  }, {
+    "faction" : "Red Mens",
+    "name" : "Alurian Archerers",
+    "models" : 50,
+    "healthPerModel" : 50.0,
+    "defensePerModel" : 50.0,
+    "attackPerModel" : 50.0
+  }, {
+    "faction" : "Red Mens",
+    "name" : "Alurian Archerers",
+    "models" : 50,
+    "healthPerModel" : 50.0,
+    "defensePerModel" : 50.0,
+    "attackPerModel" : 50.0
+  } ],
+  "ranged" : [ {
+    "faction" : "Red Mens",
+    "name" : "Alurian Archerers",
+    "models" : 50,
+    "healthPerModel" : 50.0,
+    "defensePerModel" : 50.0,
+    "attackPerModel" : 50.0
+  }, {
+    "faction" : "Red Mens",
+    "name" : "Alurian Archerers",
+    "models" : 50,
+    "healthPerModel" : 50.0,
+    "defensePerModel" : 50.0,
+    "attackPerModel" : 50.0
+  }, {
+    "faction" : "Red Mens",
+    "name" : "Alurian Archerers",
+    "models" : 50,
+    "healthPerModel" : 50.0,
+    "defensePerModel" : 50.0,
+    "attackPerModel" : 50.0
+  } ],
+  "infantry" : [ {
+    "faction" : "Red Mens",
+    "name" : "Alurian Archerers",
+    "models" : 50,
+    "healthPerModel" : 50.0,
+    "defensePerModel" : 50.0,
+    "attackPerModel" : 50.0
+  }, {
+    "faction" : "Red Mens",
+    "name" : "Alurian Archerers",
+    "models" : 50,
+    "healthPerModel" : 50.0,
+    "defensePerModel" : 50.0,
+    "attackPerModel" : 50.0
+  }, {
+    "faction" : "Red Mens",
+    "name" : "Alurian Archerers",
+    "models" : 50,
+    "healthPerModel" : 50.0,
+    "defensePerModel" : 50.0,
+    "attackPerModel" : 50.0
+  } ]
+}
