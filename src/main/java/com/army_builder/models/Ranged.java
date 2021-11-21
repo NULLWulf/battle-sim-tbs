@@ -7,7 +7,6 @@ public class Ranged extends Units {
         final static int directAttackRange = 3;
         final static int diagonalAttackRange = 2;
 
-
         public Ranged(String faction, String name, int models, double healthPerModel, double defensePerModel, double attackPerModel, double rangedAttackPerModel) {
                 super(faction, name, models, healthPerModel, defensePerModel, attackPerModel);
         }
