@@ -17,7 +17,7 @@ public class Validator {
                 sc.next(); // this is important!
             }
             input = sc.nextInt();
-        } while (input <= 0);
+        } while (input < minVal || maxVal < input);
         return input;
 
     }

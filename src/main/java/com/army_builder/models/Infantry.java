@@ -1,6 +1,5 @@
 package com.army_builder.models;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -12,7 +11,9 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Infantry extends Units {
 
+    @JsonIgnore
     final static int directAttackRange = 1;
+    @JsonIgnore
     final static int diagonalAttackRange = 1;
     @JsonIgnore
     public int currentModels;

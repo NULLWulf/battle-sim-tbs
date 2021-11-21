@@ -5,6 +5,7 @@ import com.army_builder.models.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class ArmyDesigner{
@@ -16,9 +17,11 @@ public class ArmyDesigner{
     Cavalry cavalry;
     Ranged ranged;
 
-    public void selectUnitToCreate() throws JsonProcessingException {
+    public void selectUnitToCreate() throws IOException {
 
         Scanner scanner = new Scanner(System.in);
+        dummyArmy.setFaction(validator.checkIfString("faction"));
+        dummyArmy.setFactionLeader(validator.checkIfString("faction leader"));
         boolean finished = false;
         do{
             int choice = validator.checkInt(1, 3, "select a unit to create");
@@ -48,22 +51,22 @@ public class ArmyDesigner{
 
         JSON_Handler json = new JSON_Handler();
         json.displayObjectAsJson(dummyArmy);
+        json.writeObjectAsJson("testArmy.json",dummyArmy);
 
-
-
+        Army testArmy = json.getArmyJson("testArmy.json");
+        json.displayObjectAsJson(dummyArmy);
     }
 
     public Ranged designRangedUnit() throws JsonProcessingException {
 
         System.out.println("Enter Data for the Unit. (Faction, Name, Models, Health, Defense, and Attack per Model");
-        String faction = validator.checkIfString("Faction");
         String name = validator.checkIfString("Name");
         int models = validator.checkInt(50, 200, "Base Model Size");
         double healthPerModel = validator.checkInt(50, 200, "Base Health Per Model");
         double defensePerModel = validator.checkInt(50, 200, "Base Defense Per Model");
         double attackPerModel = validator.checkInt(50, 200, "Base Attack Per Model");
 
-        Ranged ranged = new Ranged(faction, name, models, healthPerModel, defensePerModel, attackPerModel, 50);
+        Ranged ranged = new Ranged(dummyArmy.getFaction(), name, models, healthPerModel, defensePerModel, attackPerModel, 50);
 
         System.out.println("Selected Unit Stats");
         displayBaseStats(ranged);
@@ -74,14 +77,13 @@ public class ArmyDesigner{
     public Cavalry designCavalryUnit() throws JsonProcessingException {
 
         System.out.println("Enter Data for the Unit. (Faction, Name, Models, Health, Defense, and Attack per Model");
-        String faction = validator.checkIfString("Faction");
         String name = validator.checkIfString("Name");
         int models = validator.checkInt(50, 200, "Base Model Size");
         double healthPerModel = validator.checkInt(50, 200, "Base Health Per Model");
         double defensePerModel = validator.checkInt(50, 200, "Base Defense Per Model");
         double attackPerModel = validator.checkInt(50, 200, "Base Attack Per Model");
 
-        Cavalry cavalry = new Cavalry(faction, name, models, healthPerModel, defensePerModel, attackPerModel);
+        Cavalry cavalry = new Cavalry(dummyArmy.getFaction(), name, models, healthPerModel, defensePerModel, attackPerModel);
 
         System.out.println("Selected Unit Stats");
         displayBaseStats(cavalry);
@@ -92,14 +94,13 @@ public class ArmyDesigner{
     public Infantry designInfantryUnit() throws JsonProcessingException {
 
         System.out.println("Enter Data for the Unit. (Faction, Name, Models, Health, Defense, and Attack per Model");
-        String faction = validator.checkIfString("Faction");
         String name = validator.checkIfString("Name");
         int models = validator.checkInt(50, 200, "Base Model Size");
         double healthPerModel = validator.checkInt(50, 200, "Base Health Per Model");
         double defensePerModel = validator.checkInt(50, 200, "Base Defense Per Model");
         double attackPerModel = validator.checkInt(50, 200, "Base Attack Per Model");
 
-        Infantry infantry = new Infantry(faction, name, models, healthPerModel, defensePerModel, attackPerModel);
+        Infantry infantry = new Infantry(dummyArmy.getFaction(), name, models, healthPerModel, defensePerModel, attackPerModel);
 
         System.out.println("Selected Unit Stats");
         displayBaseStats(infantry);

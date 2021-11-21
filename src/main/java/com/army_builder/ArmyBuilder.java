@@ -14,12 +14,9 @@ import java.util.ArrayList;
 public class ArmyBuilder {
         public static void main(String[] args) throws IOException {
 
-<<<<<<< HEAD
+            ArmyDesigner design = new ArmyDesigner();
+            design.selectUnitToCreate();
 
-
-
-=======
->>>>>>> 041d706167d43c6fa0d1a04a47c95093cf8383ae
         }
 
     }

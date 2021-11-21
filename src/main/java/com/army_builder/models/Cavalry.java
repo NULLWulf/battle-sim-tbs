@@ -1,8 +1,12 @@
 package com.army_builder.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Cavalry extends Units {
 
+    @JsonIgnore
     final static int directAttackRange = 3;
+    @JsonIgnore
     final static int diagonalAttackRange = 2;
 
 
