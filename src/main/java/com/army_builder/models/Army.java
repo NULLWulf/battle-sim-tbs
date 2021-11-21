@@ -11,7 +11,6 @@ public class Army {
     public ArrayList<Ranged> ranged = new ArrayList<>();
     public ArrayList<Infantry> infantry = new ArrayList<>();
 
-
     public Army(){
 
     }

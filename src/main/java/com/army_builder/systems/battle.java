@@ -20,13 +20,13 @@ public class battle {
         double primaryDefense = defenderValue + (defenderValue * defednderUnitModifier);
 
         // total overall pool
-        // Critical success is based on proportion of attack overhwelming the defense
+        // Critical success is based on proportion of attack overwhelming the defense
         double totalPool = primaryDefense + primaryAttack;
         double attackPortion = primaryAttack / totalPool;
         double initialAttackValue = (attackerDamage + defenderValue) - defenderValue;
 
         // chance of events in event of positive score for attackers
-        // will program different logic for succesful defense
+        // will program different logic for successful defense
         double takeLossMultiplier = 0;
         if (attackPortion < .20) {
             takeLossMultiplier = .50;

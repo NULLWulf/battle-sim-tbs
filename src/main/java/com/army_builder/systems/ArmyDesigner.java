@@ -63,12 +63,11 @@ public class ArmyDesigner{
         double defensePerModel = validator.checkInt(50, 200, "Base Defense Per Model");
         double attackPerModel = validator.checkInt(50, 200, "Base Attack Per Model");
 
-        Ranged ranged = new Ranged(faction, name, models, healthPerModel, defensePerModel, attackPerModel, designRangedUnit().rangedAttackPerModel);
+        Ranged ranged = new Ranged(faction, name, models, healthPerModel, defensePerModel, attackPerModel, 50);
 
         System.out.println("Selected Unit Stats");
         displayBaseStats(ranged);
         System.out.printf("Attack Per Model: %f\n", ranged.rangedAttackPerModel);
-
 
         return ranged;
     }

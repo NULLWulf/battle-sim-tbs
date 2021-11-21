@@ -1,0 +1,10 @@
+{
+  "faction" : "Array",
+  "name" : "Nathan",
+  "models" : 50,
+  "healthPerModel" : 50.0,
+  "defensePerModel" : 50.0,
+  "attackPerModel" : 50.0,
+  "rangedAttackPerModel" : 0.0,
+  "rangedAttack" : 0.0
+}

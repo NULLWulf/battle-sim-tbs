@@ -10,8 +10,8 @@ import java.nio.file.Paths;
 
 public class JSON_Handler {
 
+    // Creates object mapper
     ObjectMapper objectMapper = new ObjectMapper();
-
 
     // simply returns passed object as formatted JSON string
     public String getObjAsJSONString(Object object) throws JsonProcessingException {
