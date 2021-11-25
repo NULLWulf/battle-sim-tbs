@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
+
 import java.nio.file.Paths;
 
 public class JSON_Handler {
@@ -33,18 +34,15 @@ public class JSON_Handler {
     }
 
     // Writes passed object as JSON file based on it's specified path and passed object
-    public void writeObjectAsJson(String path,Object object) throws IOException {
+    public void writeObjectAsJson(String objectName,Object object) throws IOException {
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-
-        objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get(path).toFile(),object);
+        objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get("jsonfiles/" + objectName + ".json").toFile(),object);
     }
 
     // Specific Function for returning army saved as JSON file
     public Army getArmyJson(String path) throws IOException {
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-
         return objectMapper.readValue(new File(path), Army.class);
-
     }
 
 }

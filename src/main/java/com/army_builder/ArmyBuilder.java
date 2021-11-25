@@ -14,9 +14,12 @@ import java.util.ArrayList;
 public class ArmyBuilder {
         public static void main(String[] args) throws IOException {
 
-            ArmyDesigner design = new ArmyDesigner();
-            design.selectUnitToCreate();
+            JSON_Handler handler = new JSON_Handler();
 
+            Army army = new Army();
+
+            army.setFaction("Test");
+            handler.writeObjectAsJson(army.getFaction(), army);
         }
 
     }

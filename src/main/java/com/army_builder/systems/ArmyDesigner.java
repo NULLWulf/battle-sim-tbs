@@ -49,11 +49,16 @@ public class ArmyDesigner{
             }
         }while(!finished);
 
+        String customerJSONFile = dummyArmy.getFaction() + ".json";
         JSON_Handler json = new JSON_Handler();
         json.displayObjectAsJson(dummyArmy);
-        json.writeObjectAsJson("testArmy.json",dummyArmy);
 
-        Army testArmy = json.getArmyJson("testArmy.json");
+        System.out.printf("Saving file as %s.json \n",customerJSONFile);
+
+        json.writeObjectAsJson(customerJSONFile,  dummyArmy);
+
+        System.out.println("Testing custom json faction file writer");
+        Army testArmy = json.getArmyJson(customerJSONFile);
         json.displayObjectAsJson(dummyArmy);
     }
 
