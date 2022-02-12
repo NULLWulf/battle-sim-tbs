@@ -53,13 +53,16 @@ public class ArmyDesigner{
         JSON_Handler json = new JSON_Handler();
         json.displayObjectAsJson(dummyArmy);
 
-        System.out.printf("Saving file as %s.json \n",customerJSONFile);
+//        System.out.printf("Saving file as %s.json \n",customerJSONFile);
+//
+//        json.writeObjectAsJson(customerJSONFile,  dummyArmy);
+//
+//        System.out.println("Testing custom json faction file writer");
+//        Army testArmy = json.getArmyJson(customerJSONFile);
+//        json.displayObjectAsJson(dummyArmy);
 
-        json.writeObjectAsJson(customerJSONFile,  dummyArmy);
-
-        System.out.println("Testing custom json faction file writer");
-        Army testArmy = json.getArmyJson(customerJSONFile);
-        json.displayObjectAsJson(dummyArmy);
+        Client send = new Client();
+        send.apiInsertTest(json.getObjAsJSONString(dummyArmy));
     }
 
     public Ranged designRangedUnit() throws JsonProcessingException {
