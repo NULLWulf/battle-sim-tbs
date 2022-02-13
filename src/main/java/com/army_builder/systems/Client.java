@@ -28,10 +28,10 @@ public class Client {
         System.out.println(requireNonNull(response.body()).string());
     }
 
-    public void insertOneArmy(String test) throws IOException {
+    public void insertOneArmy(String army) throws IOException {
         OkHttpClient client = new OkHttpClient().newBuilder().build();
         MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(Auth.getDBString()+"\"document\": { \"status\": \"open\"}}",mediaType);
+        RequestBody body = RequestBody.create(Auth.getDBString()+"\"document\": " + army + "}",mediaType);
         Request request = new Request.Builder()
                 .url("https://data.mongodb-api.com/app/data-okszo/endpoint/data/beta/action/insertOne")
                 .method("POST", body)
@@ -40,7 +40,7 @@ public class Client {
                 .addHeader("api-key", Auth.getMongoKey())
                 .build();
         Response response = client.newCall(request).execute();
-//        JSON_Handler json = new JSON_Handler();
-//        System.out.println(json.getObjAsJSONString(requireNonNull(response.body()).string()));
+        JSON_Handler json = new JSON_Handler();
+        System.out.println(json.getObjAsJSONString(requireNonNull(response.body()).string()));
     }
 }

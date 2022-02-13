@@ -11,7 +11,8 @@ import java.io.IOException;
 
 public class ArmyBuilder {
         public static void main(String[] args) throws IOException {
-
+            ArmyDesigner armyDesigner = new ArmyDesigner ();
+            armyDesigner.selectUnitToCreate();
         }
 
     }

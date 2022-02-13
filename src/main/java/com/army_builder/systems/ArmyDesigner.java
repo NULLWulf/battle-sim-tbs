@@ -62,7 +62,7 @@ public class ArmyDesigner{
 //        json.displayObjectAsJson(dummyArmy);
 
         Client send = new Client();
-        send.apiInsertTest(json.getObjAsJSONString(dummyArmy));
+        send.insertOneArmy(json.getObjAsJSONString(dummyArmy));
     }
 
     public Ranged designRangedUnit() throws JsonProcessingException {
