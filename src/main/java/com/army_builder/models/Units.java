@@ -3,9 +3,9 @@ package com.army_builder.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Units {
 
-    String faction; // faction unit belongs to
     String name;  // name of unit, mostly a flavor things
 
     // All values are loaded with initial, values change over the course of battle
@@ -27,13 +27,10 @@ public class Units {
     final static int diagonalAttackRange = 1;
 
     // Needed for Jackson handler
-    public Units(){
-
-    };
+    public Units(){}
 
     // Generated Constructor
-    public Units(String faction, String name, int models, double healthPerModel, double defensePerModel, double attackPerModel) {
-        this.faction = faction;
+    public Units(String name, int models, double healthPerModel, double defensePerModel, double attackPerModel) {
         this.name = name;
         this.models = models;
         this.healthPerModel = healthPerModel;
@@ -42,12 +39,6 @@ public class Units {
         setCurrentUnitHealth();
     }
 
-    public String getFaction() {
-        return faction;
-    }
-    public void setFaction(String faction) {
-        this.faction = faction;
-    }
     public String getName() {
         return name;
     }

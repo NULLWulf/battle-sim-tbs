@@ -9,15 +9,10 @@ public class Cavalry extends Units {
     @JsonIgnore
     final static int diagonalAttackRange = 2;
 
-
-
-    public Cavalry(String faction, String name, int models, double healthPerModel, double defensePerModel, double attackPerModel) {
-        super(faction, name, models, healthPerModel, defensePerModel, attackPerModel);
+    public Cavalry(String name, int models, double healthPerModel, double defensePerModel, double attackPerModel) {
+        super(name, models, healthPerModel, defensePerModel, attackPerModel);
     }
 
     // needed for Jackson handler
-    public Cavalry(){
-
-
-    }
+    public Cavalry(){}
 }

@@ -13,7 +13,7 @@ enum Direction {
 
     private final int rowSteps;
     private final int colSteps;
-    private Direction(int rowSteps, int colSteps)  {
+    Direction(int rowSteps, int colSteps)  {
         this.rowSteps = rowSteps;
         this.colSteps = colSteps;
     }
@@ -29,7 +29,7 @@ enum Direction {
     public int getColSteps()  {
         return  colSteps;
     }
-};
+}
 
 public class Map {
 
@@ -68,7 +68,7 @@ public class Map {
                 if(MAP_STATE[row][col] == null) {  //if position is null shows that it is unoccupied
                     System.out.print("  Unoccupied  ");
                 }else {  // gets basic info on position based on name and faction
-                    System.out.printf("  %s :   %s", MAP_STATE[row][col].getName(), MAP_STATE[row][col].getFaction());
+//                    System.out.printf("  %s :   %s", MAP_STATE[row][col].getName(), MAP_STATE[row][col].getFaction());
                 }
 
                 // if last columns adds a line break

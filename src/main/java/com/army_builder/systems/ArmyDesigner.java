@@ -24,23 +24,25 @@ public class ArmyDesigner{
         dummyArmy.setFactionLeader(validator.checkIfString("faction leader"));
         boolean finished = false;
         do{
-            int choice = validator.checkInt(1, 3, "select a unit to create");
+            String selection = "\n1: Infantry\n" +
+                    "2: Cavalry \n3: Ranged \n";
+            int choice = validator.checkInt(1, 3, selection);
             switch (choice) {
-                case 1:
+                case 1 -> {
                     System.out.println("Entering Infantry Creation Menu");
                     infantry = designInfantryUnit();
                     dummyArmy.infantry.add(infantry);
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     System.out.println("Entering Cavalry Creation Menu");
                     cavalry = designCavalryUnit();
                     dummyArmy.cavalry.add(cavalry);
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     System.out.println("Entering Ranged Creation Menu");
                     ranged = designRangedUnit();
                     dummyArmy.ranged.add(ranged);
-                    break;
+                }
             }
             System.out.println("Finished?");
             int choice2 = validator.checkInt(1,2," 1 for Yes, 2 for no");
@@ -74,7 +76,7 @@ public class ArmyDesigner{
         double defensePerModel = validator.checkInt(50, 200, "Base Defense Per Model");
         double attackPerModel = validator.checkInt(50, 200, "Base Attack Per Model");
 
-        Ranged ranged = new Ranged(dummyArmy.getFaction(), name, models, healthPerModel, defensePerModel, attackPerModel, 50);
+        Ranged ranged = new Ranged(name, models, healthPerModel, defensePerModel, attackPerModel, 50);
 
         System.out.println("Selected Unit Stats");
         displayBaseStats(ranged);
@@ -91,7 +93,7 @@ public class ArmyDesigner{
         double defensePerModel = validator.checkInt(50, 200, "Base Defense Per Model");
         double attackPerModel = validator.checkInt(50, 200, "Base Attack Per Model");
 
-        Cavalry cavalry = new Cavalry(dummyArmy.getFaction(), name, models, healthPerModel, defensePerModel, attackPerModel);
+        Cavalry cavalry = new Cavalry(name, models, healthPerModel, defensePerModel, attackPerModel);
 
         System.out.println("Selected Unit Stats");
         displayBaseStats(cavalry);
@@ -101,14 +103,14 @@ public class ArmyDesigner{
 
     public Infantry designInfantryUnit() throws JsonProcessingException {
 
-        System.out.println("Enter Data for the Unit. (Faction, Name, Models, Health, Defense, and Attack per Model");
+        System.out.println("Enter Data for the Unit. (Name, Models, Health, Defense, and Attack per Model");
         String name = validator.checkIfString("Name");
         int models = validator.checkInt(50, 200, "Base Model Size");
         double healthPerModel = validator.checkInt(50, 200, "Base Health Per Model");
         double defensePerModel = validator.checkInt(50, 200, "Base Defense Per Model");
         double attackPerModel = validator.checkInt(50, 200, "Base Attack Per Model");
 
-        Infantry infantry = new Infantry(dummyArmy.getFaction(), name, models, healthPerModel, defensePerModel, attackPerModel);
+        Infantry infantry = new Infantry(name, models, healthPerModel, defensePerModel, attackPerModel);
 
         System.out.println("Selected Unit Stats");
         displayBaseStats(infantry);
@@ -117,11 +119,14 @@ public class ArmyDesigner{
     }
 
     public void displayBaseStats(Units unit){
-        System.out.printf("Faction: %s\n",unit.getFaction());
         System.out.printf("Unit Name: %s\n",unit.getName());
         System.out.printf("Model Size: %d\n",unit.getModels());
         System.out.printf("Health Per Model: %f\n",unit.getHealthPerModel());
         System.out.printf("Defense Per Model: %f\n",unit.getDefensePerModel());
         System.out.printf("Attack Per Model: %f\n",unit.getAttackPerModel());
+    }
+
+    public void displayUnitSlct(){
+        System.out.println();
     }
 }

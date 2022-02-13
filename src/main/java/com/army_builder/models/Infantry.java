@@ -1,6 +1,7 @@
 package com.army_builder.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.text.ParseException;
@@ -9,6 +10,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.ThreadLocalRandom;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Infantry extends Units {
 
     @JsonIgnore
@@ -22,15 +24,15 @@ public class Infantry extends Units {
     Queue<Integer> rankFile = new LinkedList<Integer>();
 
 
-    public Infantry(String faction, String name, int models, double healthPerModel, double defensePerModel, double attackPerModel) {
-        super(faction, name, models, healthPerModel, defensePerModel, attackPerModel);
+    public Infantry(String name, int models, double healthPerModel, double defensePerModel, double attackPerModel) {
+        super(name, models, healthPerModel, defensePerModel, attackPerModel);
         rankFileGenerator();
     }
 
     // needed for jackson handler
     public Infantry(){
 
-    };
+    }
 
     private void rankFileGenerator(){
 

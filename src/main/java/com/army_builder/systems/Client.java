@@ -12,7 +12,7 @@ import static java.util.Objects.requireNonNull;
 
 public class Client {
 
-    public void findAll(String string) throws IOException {  // Currently will find all documents as they appear in databse
+    public String findAll() throws IOException {  // Currently will find all documents as they appear in databse
 
         OkHttpClient client = new OkHttpClient().newBuilder().build();
         MediaType mediaType = MediaType.parse("application/json");
@@ -25,7 +25,10 @@ public class Client {
                 .addHeader("api-key", Auth.getMongoKey())
                 .build();
         Response response = client.newCall(request).execute();
-        System.out.println(requireNonNull(response.body()).string());
+        System.out.println(response.code());
+        return requireNonNull(response.body()).string();
+
+
     }
 
     public void insertOneArmy(String army) throws IOException {
@@ -42,5 +45,6 @@ public class Client {
         Response response = client.newCall(request).execute();
         JSON_Handler json = new JSON_Handler();
         System.out.println(json.getObjAsJSONString(requireNonNull(response.body()).string()));
+        System.out.println(response.code());
     }
 }
