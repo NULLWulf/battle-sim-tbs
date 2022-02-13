@@ -21,8 +21,10 @@ public class ArmyBuilder {
             ObjectMapper objectMapper = new ObjectMapper();
             DB db = objectMapper.readValue(results, DB.class);
 
-            ArmyDesigner armyDesigner = new ArmyDesigner();
-            armyDesigner.selectUnitToCreate();
+//            ArmyDesigner armyDesigner = new ArmyDesigner();
+//            armyDesigner.selectUnitToCreate();
+
+            Army army = db.armyDbScroller();
         }
 
     }

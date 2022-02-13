@@ -42,4 +42,12 @@ public class Army {
     public void set_id(String _id) {
         this._id = _id;
     }
+
+    public void armyOverview() {
+        System.out.printf("Faction Name: %s\n", faction);
+        System.out.printf("Faction Leader: %s\n", factionLeader);
+        System.out.printf("Infantry Units: %d\n", infantry.size());
+        System.out.printf("Cavalry Units: %d\n", cavalry.size());
+        System.out.printf("Ranged Units: %d\n", ranged.size());
+    }
 }
