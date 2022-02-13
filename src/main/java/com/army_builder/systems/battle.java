@@ -7,6 +7,11 @@ public class battle {
 
     public void unit2unitAttack(Units attacker, Units defender) {
 
+        System.out.println("Attacker Stats Before");
+        System.out.println(attacker.toString());
+        System.out.println("Defender Stats Before");
+        System.out.println(defender.toString());
+
         // Gets damage and defense per model values from passed methods
         double attackerDamage = attacker.calculateAttack();
         double defenderValue = defender.calculateDefense();
@@ -23,21 +28,33 @@ public class battle {
         // Critical success is based on proportion of attack overwhelming the defense
         double totalPool = primaryDefense + primaryAttack;
         double attackPortion = primaryAttack / totalPool;
-        double initialAttackValue = (attackerDamage + defenderValue) - defenderValue;
+        double initialAttackValue = totalPool - defenderValue;
 
+        defender.removeModels((int) initialAttackValue);
+
+
+
+
+        // ### Removing for now, not taking loss modifiers by proportion, instead model lose will be based on initial attack value
         // chance of events in event of positive score for attackers
         // will program different logic for successful defense
-        double takeLossMultiplier = 0;
-        if (attackPortion < .20) {
-            takeLossMultiplier = .50;
-            defender.removeModels((int) (takeLossMultiplier * initialAttackValue));
-        }else if(attackPortion < .40){
-            defender.removeModels((int) (takeLossMultiplier * initialAttackValue));
-        }else if(attackPortion < .60){
-            defender.removeModels((int) (takeLossMultiplier * initialAttackValue));
-        }else if(attackPortion < .80){
-            defender.removeModels((int) (takeLossMultiplier * initialAttackValue));
-        }
+        //
+//        double takeLossMultiplier = 1;
+//        if (attackPortion < .20) {
+//            takeLossMultiplier = .50;
+//            defender.removeModels((int) (takeLossMultiplier * initialAttackValue));
+//        }else if(attackPortion < .40){
+//            defender.removeModels((int) (takeLossMultiplier * initialAttackValue));
+//        }else if(attackPortion < .60){
+//            defender.removeModels((int) (takeLossMultiplier * initialAttackValue));
+//        }else if(attackPortion < .80){
+//            defender.removeModels((int) (takeLossMultiplier * initialAttackValue));
+//        }
+
+        System.out.println("Attacker Stats After");
+        System.out.println(attacker.toString());
+        System.out.println("Defender Stats After");
+        System.out.println(defender.toString());
     }
 
 

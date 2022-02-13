@@ -24,4 +24,9 @@ public class Ranged extends Units {
         public double getRangedAttack(){
                 return this.rangedAttackPerModel * this.models;
         }
+
+        @Override
+        public String toString() {
+                return super.toString() + "\nRanged Attack Per Model: " + rangedAttackPerModel +  "," + rangedAttackPerModel * models;
+        }
 }

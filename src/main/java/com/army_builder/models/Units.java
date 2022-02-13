@@ -92,5 +92,14 @@ public class Units {
     public double calculateAttack(){ return this.attackPerModel * this.models;}
     public double calculateDefense() {return this.defensePerModel * this.models;}
 
+    public String toString() {
+        return "Unit Name: " + name +
+                "\nModels: " + models +
+                "\nHealth per Model/Total: " + healthPerModel + ", " + healthPerModel * models +
+                "\nDefense per Model/Total: " + defensePerModel + ", " + defensePerModel * models +
+                "\nAttack per Model/Total: " + defensePerModel + ", " + healthPerModel * models;
+    }
+
+
 }
 
