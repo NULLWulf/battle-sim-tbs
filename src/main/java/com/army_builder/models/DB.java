@@ -1,15 +1,12 @@
 package com.army_builder.models;
-
 import com.army_builder.systems.Validator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.security.PrivateKey;
 import java.util.ArrayList;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DB {
-
 
     @JsonProperty("documents")
     public ArrayList<Army> army = new ArrayList<>();
@@ -18,15 +15,15 @@ public class DB {
 
     public Army armyDbScroller(){
 
-        int cursor = 0;  // variable to point to a place in the database to display
-        int length = army.size()-1; // size of the db array list
+        int cursor = 0;  // variables to select position with army database list
+        int length = army.size()-1; // size of the db array list - 1 for bounds purposes
         System.out.println(length + " armies currently saved to database.");
 
-        boolean finished = false;
+        boolean finished = false;  // selection finished logic
 
-        Validator validator = new Validator();
-        System.out.printf("Army %d of %d\n",cursor+1,length+1);
-        army.get(cursor).armyOverview();
+        Validator validator = new Validator(); // input validator
+        System.out.printf("Army %d of %d\n",cursor+1,length+1); // displays current cursor position
+        army.get(cursor).armyOverview(); // calls function from army to display army related data
         do{
             int selection = validator.checkInt(1,3, """
                     one of the following:
@@ -41,7 +38,15 @@ public class DB {
                     else{cursor--;}
                 }
                 case 2 ->{
-                    finished = true;
+                    System.out.println("Use currently selected army?");
+                    int confirm = validator.checkInt(1,2, """
+                            1 for yes, 2 for no
+                            """);
+                    if(confirm == 1) {
+                        finished = true;
+                        return army.get(cursor);
+                    }
+
                 }
                 case 3 ->{
 
