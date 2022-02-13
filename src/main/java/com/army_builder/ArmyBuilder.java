@@ -12,12 +12,6 @@ import java.io.IOException;
 public class ArmyBuilder {
         public static void main(String[] args) throws IOException {
 
-//            Client client = new Client();
-//            String test = "\"database\":\"game\"";
-//            System.out.println(test);
-//            client.apiInsertTest(test);
-            ArmyDesigner armyBuilder = new ArmyDesigner();
-            armyBuilder.selectUnitToCreate();
         }
 
     }
