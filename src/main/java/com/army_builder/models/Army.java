@@ -13,9 +13,8 @@ public class Army {
     String faction; // Name of Army's Faction
     String factionLeader;
 
-    public ArrayList<Cavalry> cavalry = new ArrayList<>();
-    public ArrayList<Ranged> ranged = new ArrayList<>();
-    public ArrayList<Infantry> infantry = new ArrayList<>();
+
+    public ArrayList<Units> units = new ArrayList<>();
 
     public Army(){}
 
@@ -44,8 +43,17 @@ public class Army {
     public void armyOverview() {
         System.out.printf("Faction Name: %s\n", faction);
         System.out.printf("Faction Leader: %s\n", factionLeader);
-        System.out.printf("Infantry Units: %d\n", infantry.size());
-        System.out.printf("Cavalry Units: %d\n", cavalry.size());
-        System.out.printf("Ranged Units: %d\n", ranged.size());
+        System.out.printf("Infantry Units: %d\n", units.stream()
+                .filter(i -> i.getClass() == Infantry.class)
+                        .toArray()
+                                .length);
+        System.out.printf("Cavalry Units: %d\n", units.stream()
+                .filter(i -> i.getClass() == Cavalry.class)
+                .toArray()
+                .length);
+        System.out.printf("Ranged Units: %d\n", units.stream()
+                .filter(i -> i.getClass() == Ranged.class)
+                .toArray()
+                .length);
     }
 }
