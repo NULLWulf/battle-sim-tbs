@@ -4,17 +4,17 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Army {
 
+ String _id;
+ String faction; // Name of Army's Faction
+    // String factionLeader;
 
-    String _id;
-    String faction; // Name of Army's Faction
-    String factionLeader;
-
-
-    public ArrayList<Units> units = new ArrayList<>();
+    ArrayList<Units> units = new ArrayList<>();
+    private String factionLeader;
 
     public Army(){}
 
@@ -55,5 +55,9 @@ public class Army {
                 .filter(i -> i.getClass() == Ranged.class)
                 .toArray()
                 .length);
+    }
+
+    public ArrayList<Units> getUnits() {
+        return this.units;
     }
 }

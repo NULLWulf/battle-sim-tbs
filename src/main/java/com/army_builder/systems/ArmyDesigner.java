@@ -52,14 +52,14 @@ public class ArmyDesigner{
 
         switch (unitTypeSelection){
             case 1 -> { // Infantry Selection
-                dummyArmy.infantry.add(new Infantry(name,models,healthPerModel,defensePerModel,attackPerModel));
+                dummyArmy.getUnits().add(new Infantry(name,models,healthPerModel,defensePerModel,attackPerModel));
             }
             case 2 -> { // Cavalry Selection
-                dummyArmy.cavalry.add(new Cavalry(name,models,healthPerModel,defensePerModel,attackPerModel));
+                dummyArmy.getUnits().add(new Cavalry(name,models,healthPerModel,defensePerModel,attackPerModel));
             }
             case 3 -> {  // Ranged Selection
                 int rangedAttackPerModel = validator.checkInt(1, 10, "Ranged Attack Per Model");
-                dummyArmy.ranged.add(new Ranged(name,models,healthPerModel,defensePerModel,attackPerModel,rangedAttackPerModel));
+                dummyArmy.getUnits().add(new Ranged(name,models,healthPerModel,defensePerModel,attackPerModel,rangedAttackPerModel));
             }
         }
     }

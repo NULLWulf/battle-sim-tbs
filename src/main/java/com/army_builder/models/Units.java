@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Units {
+public class Units implements Comparable<Units> {
 
     String name;  // name of unit, mostly a flavor things
 
@@ -16,6 +16,15 @@ public class Units {
     double defensePerModel; // inherent defense value per model
     double attackPerModel; // inherent attack value per model
 
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    int speed;
     @JsonIgnore
     private int currentColumn;  // Map Grid Position System, in this instance columns
     @JsonIgnore
@@ -100,6 +109,10 @@ public class Units {
                 "\nAttack per Model/Total: " + defensePerModel + ", " + healthPerModel * models;
     }
 
-
+    @Override
+    public int compareTo(Units unit) {
+        int compare = unit.getSpeed();
+        return compare - this.getSpeed();
+    }
 }
 

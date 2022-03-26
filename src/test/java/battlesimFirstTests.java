@@ -11,7 +11,7 @@ public class battlesimFirstTests {
         Army army1 = new Army();
         Army army2 = new Army();
 
-        army1.
+
 
     }
 }
