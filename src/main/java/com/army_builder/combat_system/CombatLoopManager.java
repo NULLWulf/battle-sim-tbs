@@ -9,14 +9,14 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class CombatLoopMannager {
+public class CombatLoopManager {
 
     Army playerArmy;
     Army npcArmy;
 
     ArrayList<Units> allUnits = new ArrayList<>();
 
-    public CombatLoopMannager(Army playerArmy, Army npcArmy) {
+    public CombatLoopManager(Army playerArmy, Army npcArmy) {
         this.playerArmy = playerArmy;
         this.npcArmy = npcArmy;
 
