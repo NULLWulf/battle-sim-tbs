@@ -27,7 +27,8 @@ public class JSON_Handler {
         return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(object);
 
     }
-    public void displayObjectAsJson(Object object) throws JsonProcessingException {        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    public void displayObjectAsJson(Object object) throws JsonProcessingException {
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
 
         System.out.println(this.getObjAsJSONString(object));

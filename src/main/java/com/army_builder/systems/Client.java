@@ -27,8 +27,6 @@ public class Client {
         Response response = client.newCall(request).execute();
         System.out.println(response.code());
         return requireNonNull(response.body()).string();
-
-
     }
 
     public void insertOneArmy(String army) throws IOException {

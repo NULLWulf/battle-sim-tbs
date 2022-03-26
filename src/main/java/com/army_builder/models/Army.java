@@ -1,11 +1,13 @@
 package com.army_builder.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Army {
+
 
     String _id;
     String faction; // Name of Army's Faction
@@ -15,8 +17,11 @@ public class Army {
     public ArrayList<Ranged> ranged = new ArrayList<>();
     public ArrayList<Infantry> infantry = new ArrayList<>();
 
-    public Army(){
+    public Army(){}
 
+    public Army(String faction){
+        this._id = faction;
+        this.faction = faction;
     }
 
     public String getFaction() {
@@ -33,14 +38,7 @@ public class Army {
 
     public void setFactionLeader(String factionLeader) {
         this.factionLeader = factionLeader;
-    }
-
-    public String get_id() {
-        return _id;
-    }
-
-    public void set_id(String _id) {
-        this._id = _id;
+        this._id = factionLeader;
     }
 
     public void armyOverview() {
