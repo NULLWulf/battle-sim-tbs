@@ -14,16 +14,25 @@ public class CombatLoopManager {
     Army playerArmy;
     Army npcArmy;
 
-    ArrayList<Units> allUnits = new ArrayList<>();
+    ArrayList<Units> allUnits;
 
-    public CombatLoopManager(Army playerArmy, Army npcArmy) {
-        this.playerArmy = playerArmy;
-        this.npcArmy = npcArmy;
+    Queue<Units> battleQue;
 
-        allUnits.addAll(this.playerArmy.getUnits());
-        allUnits.addAll(this.npcArmy.getUnits());
+    public CombatLoopManager(Army playerArmy, Army npcArmy) {  // Primary constructor
 
-        Collections.sort(allUnits);
+        this.playerArmy = playerArmy;  // References playerArmy object here
+        this.npcArmy = npcArmy;         // References Npc Army object here
+
+        allUnits = new ArrayList<>();  // initialize arraylist
+
+        allUnits.addAll(this.playerArmy.getUnits());  // add all playerArmy units to ArrayList
+        allUnits.addAll(this.npcArmy.getUnits()); // add all npcArmy units to ArrayList
+
+        Collections.sort(allUnits);  // sorts units by Speed, with the fastest units going first
+
+        battleQue.addAll(allUnits);  // After sorts adds all units to Queue
+
+
     }
 }
 
